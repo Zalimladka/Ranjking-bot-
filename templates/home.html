@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HR 0.1- Device Approval</title>
+  <title>HR 0.1- Device Access</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
     :root {
@@ -43,7 +43,7 @@
       font-size: 2rem;
       letter-spacing: 2px;
       text-shadow: 0 0 10px white;
-    }    
+    }
     p {
       margin: 8px 0;
     }
@@ -98,17 +98,9 @@
       margin: 15px 0;
       font-weight: 600;
     }
-    .pending {
-      background: rgba(255, 193, 7, 0.15);
-      color: #ffc107;
-    }
     .approved {
       background: rgba(40, 167, 69, 0.15);
       color: #28a745;
-    }
-    .rejected {
-      background: rgba(220, 53, 69, 0.15);
-      color: #dc3545;
     }
     .info {
       font-size: 0.9rem;
@@ -126,7 +118,6 @@
     .contact-buttons {
       margin-top: 10px;
     }
-
     /* Footer */
     .footer {
       margin-top: 25px;
@@ -143,7 +134,6 @@
     .footer a.whatsapp:hover { color: #25D366; }
     .footer a.facebook:hover { color: #1877F2; }
     .footer a.discord:hover { color: #5865F2; }
-
     /* Admin Button */
     .admin-btn {
       margin-top: 20px;
@@ -173,52 +163,24 @@
     <video class="header-video" autoplay loop muted playsinline>
       <source src="https://github.com/hassanrajput0x1-sys/videos/blob/main/111111 (1).mp4?raw=true">
 </video>
-    
-    <h1>HASSAN 0.1</h1>
-    
+   
+    <h1>Zalim X Rdx 0.1</h1>  <!-- Your name added -->
+   
     <p>Your Device ID:</p>
     <div class="device-id">{{ device_id }}</div>
-    
-    {% if status == "pending" %}
-    <div class="status pending">
-      <i class="fas fa-clock"></i> PENDING APPROVAL
-    </div>
-    <p class="info">Hi Dear User <br>Your device ID is pending. Please send this to the owner for approval.</p>
-    <div class="contact-buttons">
-      <a href="https://www.facebook.com/profile.php?id=61567386492909/" class="btn" target="_blank">
-        <i class="fab fa-facebook"></i> Contact Owner
-      </a>
-      <a href="https://wa.me/+919076811018" class="btn" target="_blank">
-        <i class="fab fa-whatsapp"></i> Contact On WhatsApp
-      </a>
-    </div>
-    {% elif status == "approved" %}
+   
+    <!-- Always approved - no conditions -->
     <div class="status approved">
       <i class="fas fa-check-circle"></i> APPROVED
     </div>
     <a href="{{ start_url }}" class="btn">
       <i class="fas fa-rocket"></i> START
     </a>
-    {% elif status == "rejected" %}
-    <div class="status rejected">
-      <i class="fas fa-times-circle"></i> REJECTED
-    </div>
-    <p class="info">Your device id has been rejected.</p>
-    {% else %}
-    <form method="POST">
-      <input type="hidden" name="device_id" value="{{ device_id }}">
-      <button type="submit" class="btn">
-        <i class="fas fa-paper-plane"></i> SEND FOR APPROVAL
-      </button>
-    </form>
     <p class="info">This ID will remain the same even if you reinstall the app or change browsers.</p>
-    {% endif %}
-
     <!-- Admin Panel Button -->
-    <a href="/admin-HASSAN" class="admin-btn" target="_blank">
+    <a href="/admin-ZalimXRDX" class="admin-btn" target="_blank">  <!-- Your name in path -->
       <i class="fas fa-user-shield"></i> Admin Panel
     </a>
-
     <!-- Footer Icons -->
     <div class="footer">
       <a href="https://wa.me/+919076811018" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
