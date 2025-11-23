@@ -1,0 +1,12 @@
+{
+    "approved": {
+        "bc21a934-ea1d-42d1-9baa-9aa029685a31": null
+        "c40b33a0-2190-495e-a6bc-7e0b9cb11b19": null
+        "51aec4db-d697-4753-baab-bc564038ad4c": null
+    },
+    "pending": [],
+    "rejected": [],
+    "permanent_ids": {
+        "abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890": "123e4567-e89b-12d3-a456-426614174000"
+    }
+}
