@@ -14,7 +14,7 @@ class Config:
     ADMIN_PATH = "/admin-ZalimXRDX"  # Changed to your name
     # hash of "RAVIRAJ@123" -> keep same
     ADMIN_PASSWORD_HASH = "e4d909c290d0fb1ca068ffaddf22cbd0"  # Hash for "RAVIRAJ@123"
-    START_URL = "https://loading-jet.vercel.app/"
+    START_URL = "http://fi6.bot-hosting.net:21240/"
 
 # ====================================================
 # APP SETUP
