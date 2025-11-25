@@ -6,22 +6,14 @@ import hashlib
 import logging
 from flask import Flask, request, redirect, url_for, render_template, make_response, abort
 
-# ====================================================
-# CONFIGURATION
-# ====================================================
 class Config:
     ADMIN_PATH = "/admin-ZalimXRDX"
-    ADMIN_PASSWORD_HASH = "e4d909c290d0fb1ca068ffaddf22cbd0"  # Hash for "RAVIRAJ@123"
-   START_URL = "http://de3.bot-hosting.net:8000/"  # Your bot URL – up हो
-# ====================================================
-# APP SETUP
-# ====================================================
+    ADMIN_PASSWORD_HASH = "e4d909c290d0fb1ca068ffaddf22cbd0"
+    START_URL = "http://de3.bot-hosting.net:8000/"
+
 app = Flask(__name__)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
-# ====================================================
-# UTILS
-# ====================================================
 def get_or_set_device_cookie():
     device_id = request.cookies.get("device_id")
     if not device_id:
@@ -33,9 +25,6 @@ def get_or_set_device_cookie():
 def is_admin(password: str) -> bool:
     return hashlib.sha256(password.encode()).hexdigest() == Config.ADMIN_PASSWORD_HASH
 
-# ====================================================
-# ROUTES
-# ====================================================
 @app.route("/", methods=["GET", "POST"])
 def index():
     try:
@@ -43,7 +32,7 @@ def index():
         if not device_id:
             device_id = str(uuid.uuid4())
         if request.method == "POST":
-            pass  # No approval needed
+            pass
         status = "approved"
         resp = make_response(render_template("home.html",
                            device_id=device_id,
@@ -59,7 +48,8 @@ def index():
 def admin_panel():
     try:
         if request.method == "POST":
-            if not is_admin(request.form.get("password", "")):
+            password = request.form.get("password", "")
+            if not is_admin(password):
                 return render_template("admin.html", logged_in=False)
             device_id = request.cookies.get("device_id")
             if not device_id:
@@ -69,15 +59,13 @@ def admin_panel():
                 logged_in=True,
                 device_id=device_id,
                 status="approved",
-                admin_password=request.form.get("password")
+                admin_password=password
             )
         return render_template("admin.html", logged_in=False)
     except Exception as e:
         logging.error(f"Admin panel error: {e}")
         abort(500)
 
-# ====================================================
-# ENTRY POINT
-# ====================================================
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    
