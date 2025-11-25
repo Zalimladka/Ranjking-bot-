@@ -12,8 +12,7 @@ from flask import Flask, request, redirect, url_for, render_template, make_respo
 class Config:
     ADMIN_PATH = "/admin-ZalimXRDX"
     ADMIN_PASSWORD_HASH = "e4d909c290d0fb1ca068ffaddf22cbd0"  # Hash for "RAVIRAJ@123"
-    START_URL = "https://www.google.com/"  # Test – bot URL up हो जाए तो change करो, e.g., "http://de3.bot-hosting.net:8000/"
-
+   START_URL = "http://de3.bot-hosting.net:8000/"  # Your bot URL – up हो
 # ====================================================
 # APP SETUP
 # ====================================================
